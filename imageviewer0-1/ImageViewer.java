@@ -21,6 +21,7 @@ public class ImageViewer
     public ImageViewer()
     {
         makeFrame();
+        
     }
     
     // ---- swing stuff to build the frame and all its components ----
@@ -30,13 +31,29 @@ public class ImageViewer
      */
     private void makeFrame()
     {
-        frame = new JFrame("ImageViewer");        
+        frame = new JFrame("Text Display");        
         Container contentPane = frame.getContentPane();
+        JMenuBar menubar = new JMenuBar();
+        frame.setJMenuBar(menubar);
+        JMenu fileMenu = new JMenu("File");
+        menubar.add(fileMenu);
+        
+        JMenuItem openItem = new JMenuItem("Open");
+        fileMenu.add(openItem);
+        JMenuItem quitItem = new JMenuItem("Quit");
+        fileMenu.add(quitItem);
+        JMenuItem help = new JMenuItem("AboutImageViewer");
+        fileMenu.add(help);
+        
         
         JLabel label = new JLabel("I am a label. I can display some text.");
+        JButton button = new JButton("Nuclear Launch Codes");
         contentPane.add(label);
-
+        contentPane.add(button); 
+        
         frame.pack();
         frame.setVisible(true);
+        frame.resize(240, 240);
+        
     }
 }
